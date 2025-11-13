@@ -25,7 +25,10 @@ class ControllerTemaTest {
                 .andExpect(jsonPath("$.tema").exists())
                 .andExpect(jsonPath("$.membro1").exists())
                 .andExpect(jsonPath("$.membro2").exists())
-                .andExpect(jsonPath("$.descricao").exists());
+                .andExpect(jsonPath("$.descricao").exists())
+                .andExpect(jsonPath("$.tema").value("Ambientes de trabalho com Realidade Virtual ou Aumentada"))
+                .andExpect(jsonPath("$.membro1").value("Rafael Bueno Villela - RM550275"))
+                .andExpect(jsonPath("$.membro2").value("Cesar Iglesias - RM98007"));
     }
 
     @Test
@@ -34,6 +37,21 @@ class ControllerTemaTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string("Pong"));
     }
+
+    @Test
+    void testVersion() throws Exception {
+        mockMvc.perform(get("/api/v1/tema/version"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(org.hamcrest.Matchers.containsString("Versão")));
+    }
+
+    @Test
+    void testInfoRoot() throws Exception {
+        mockMvc.perform(get("/info"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.tema").exists())
+                .andExpect(jsonPath("$.membro1").value("Rafael Bueno Villela - RM550275"))
+                .andExpect(jsonPath("$.membro2").value("Cesar Iglesias - RM98007"));
+    }
 }
-
-

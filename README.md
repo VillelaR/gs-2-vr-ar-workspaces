@@ -42,10 +42,10 @@ docker compose stop
 
 ## Membros do Grupo
 
-- **Membro 1**: Nome do Membro 1
+- **Rafael Bueno Villela**
   - RM: 550275
 
-- **Membro 2**: Nome do Membro 2
+- **Cesar Iglesias**
   - RM: 98007
 
 ## Tema Escolhido
@@ -83,8 +83,8 @@ Retorna informações sobre o tema do projeto, membros do grupo e descrição.
 ```json
 {
   "tema": "Ambientes de trabalho com Realidade Virtual ou Aumentada",
-  "membro1": "Nome do Membro 1",
-  "membro2": "Nome do Membro 2",
+  "membro1": "Rafael Bueno Villela - RM550275",
+  "membro2": "Cesar Iglesias - RM98007",
   "descricao": "Descrição detalhada do tema..."
 }
 ```
@@ -106,12 +106,12 @@ Retorna a versão da API.
 
 **URL da Imagem no Docker Hub:**
 ```
-https://hub.docker.com/r/acnaweb/gs-2-vr-ar-workspaces
+https://hub.docker.com/r/villelar/gs-2-vr-ar-workspaces
 ```
 
 **Comando para pull:**
 ```bash
-docker pull acnaweb/gs-2-vr-ar-workspaces:latest
+docker pull villelar/gs-2-vr-ar-workspaces:latest
 ```
 
 ## Workflows CI/CD
