@@ -40,7 +40,11 @@ docker compose stop
 ```
 
 ### Documentação da API (Swagger)
-- http://localhost:8081/
+
+A documentação Swagger/OpenAPI está disponível em:
+
+- **URL Local:** http://localhost:8081/swagger-ui/index.html
+- **URL Alternativa:** http://localhost:8081/swagger-ui.html
 
 ## Membros do Grupo
 
@@ -77,7 +81,7 @@ A API de integração para Ambientes de trabalho com Realidade Virtual ou Aument
 
 ## Endpoints Disponíveis
 
-### GET /api/v1/tema/info
+### GET /info
 
 Retorna informações sobre o tema do projeto, membros do grupo e descrição.
 
@@ -87,22 +91,9 @@ Retorna informações sobre o tema do projeto, membros do grupo e descrição.
   "tema": "Ambientes de trabalho com Realidade Virtual ou Aumentada",
   "membro1": "Rafael Bueno Villela - RM550275",
   "membro2": "Cesar Iglesias - RM98007",
-  "descricao": "Descrição detalhada do tema..."
+  "descricao": "Esta API foi desenvolvida para suportar ambientes de trabalho inovadores que utilizam tecnologias de Realidade Virtual (VR) e Realidade Aumentada (AR). O objetivo é criar plataformas que permitam colaboração remota imersiva, reuniões virtuais em espaços 3D, treinamentos interativos e ambientes de trabalho híbridos que combinam elementos físicos e digitais. A solução visa transformar a forma como as equipes trabalham, oferecendo experiências mais envolventes e produtivas através de tecnologias imersivas."
 }
 ```
-
-### GET /api/v1/tema/ping
-
-Endpoint de health check.
-
-**Resposta:**
-```
-Pong
-```
-
-### GET /api/v1/tema/version
-
-Retorna a versão da API.
 
 ## Docker Hub
 
@@ -120,22 +111,30 @@ docker pull villelar/gs-2-vr-ar-workspaces:latest
 
 O projeto possui três workflows GitHub Actions configurados:
 
-### 1. Versionamento (release-please.yml)
+### 1. Automação de Versão (release-please.yml)
 
 **Trigger:** Push na branch `main`
 
 **Funcionalidades:**
-- Gera tags automáticas usando release-please
-- Cria releases automaticamente
+- Gera tags automáticas no GitHub
+- Incrementa automaticamente a versão (v1.0.0, v1.0.1, etc.)
+- Permite rastreamento de versões do projeto
+
+**Evidências obrigatórias:**
+- Execução registrada em Actions
+- Tag criada automaticamente no repositório
 
 ### 2. Continuous Integration (ci.yaml)
 
 **Trigger:** Push nas branches `feature/**`, `release`, `hotfix`
 
 **Funcionalidades:**
-- Compila a aplicação
-- Executa testes unitários
-- Constrói a imagem Docker para verificação
+- Build da aplicação
+- Execução de testes unitários
+- Build da imagem Docker (verificação)
+
+**Evidências obrigatórias:**
+- Execução registrada em Actions
 
 ### 3. Continuous Delivery (cd.yaml)
 
@@ -145,6 +144,10 @@ O projeto possui três workflows GitHub Actions configurados:
 - Compila e empacota a aplicação
 - Constrói a imagem Docker
 - Envia automaticamente a imagem para o Docker Hub
+
+**Evidências obrigatórias:**
+- Execução registrada em Actions
+- Imagem atualizada no Docker Hub
 
 ### Configuração de Secrets
 

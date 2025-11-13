@@ -1,4 +1,4 @@
-name: Versionamento
+name: Automação de Versão
 
 on:
   push:
@@ -7,15 +7,41 @@ on:
 
 permissions:
   contents: write
-  issues: write
-  pull-requests: write
 
 jobs:
-  release-please:
+  versioning:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: googleapis/release-please-action@v4
+      - name: Checkout
+        uses: actions/checkout@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: maven
+          fetch-depth: 0
+
+      - name: Configurar Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Gerar tag automática
+        run: |
+          # Obtém o número da última tag ou inicia em v1.0.0
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "Última tag: $LAST_TAG"
+          
+          # Extrai o número da versão (remove o 'v' prefix)
+          VERSION=$(echo $LAST_TAG | sed 's/^v//')
+          IFS='.' read -ra VERSION_PARTS <<< "$VERSION"
+          MAJOR=${VERSION_PARTS[0]}
+          MINOR=${VERSION_PARTS[1]}
+          PATCH=${VERSION_PARTS[2]}
+          
+          # Incrementa o patch version
+          PATCH=$((PATCH + 1))
+          NEW_TAG="v${MAJOR}.${MINOR}.${PATCH}"
+          
+          echo "Nova tag: $NEW_TAG"
+          echo "NEW_TAG=$NEW_TAG" >> $GITHUB_ENV
+          
+          # Cria a tag
+          git tag -a "$NEW_TAG" -m "Release $NEW_TAG - Automação de versão"
+          git push origin "$NEW_TAG"
