@@ -1,19 +1,13 @@
 package com.github.acnaweb.gs_2_vr_ar_workspaces.controller;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.acnaweb.gs_2_vr_ar_workspaces.dto.tema.TemaResponse;
 
 @RestController
-@RequestMapping("/api/${api.version}/tema")
-public class ControllerTema {
-    
-    @Value("${api.version}")
-    private String version;
+public class TemaController {
 
     @GetMapping("/info")
     public ResponseEntity<TemaResponse> getInfo() {
@@ -31,21 +25,6 @@ public class ControllerTema {
         );
         
         return ResponseEntity.ok(response);
-    }
-
-    @GetMapping
-    public ResponseEntity<TemaResponse> getInfoRoot() {
-        return getInfo();
-    }
-
-    @GetMapping("/ping")
-    public String ping() {
-        return "Pong";
-    }
-
-    @GetMapping("/version")
-    public String version() {
-        return "Versão: " + version;
     }
 
 }

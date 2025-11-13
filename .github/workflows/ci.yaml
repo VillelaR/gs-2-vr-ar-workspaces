@@ -3,7 +3,7 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - feature/**
+      - 'feature/*'
       - release
       - hotfix   
 
@@ -23,5 +23,5 @@ jobs:
                 run: mvn clean package -DskipTests
             -   name: Execução de Testes Unitários
                 run: mvn test
-            -   name: Teste de Criação de Imagem
+            -   name: Build da Imagem Docker (verificação)
                 run: docker build -t gs-2-vr-ar-workspaces .
