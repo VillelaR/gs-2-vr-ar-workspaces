@@ -2,7 +2,7 @@
 
 API Java para integração de Ambientes de trabalho com Realidade Virtual ou Aumentada
 
-**Status:** ✅ Projeto completo e funcional
+**Status:** ✅ Projeto completo e funcional - Docker Hub configurado
 
 ## Criando .jar
 
