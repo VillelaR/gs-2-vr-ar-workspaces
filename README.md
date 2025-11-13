@@ -2,6 +2,8 @@
 
 API Java para integração de Ambientes de trabalho com Realidade Virtual ou Aumentada
 
+**Status:** ✅ Projeto completo e funcional
+
 ## Criando .jar
 
 ```
