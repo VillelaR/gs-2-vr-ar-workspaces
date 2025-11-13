@@ -29,9 +29,8 @@ jobs:
           username: ${{ vars.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ vars.DOCKER_USER }}/gs-2-vr-ar-workspaces:latest
+      - name: Build Docker image
+        run: docker build -t ${{ vars.DOCKER_USER }}/gs-2-vr-ar-workspaces:latest .
+
+      - name: Push Docker image
+        run: docker push ${{ vars.DOCKER_USER }}/gs-2-vr-ar-workspaces:latest
