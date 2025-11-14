@@ -35,8 +35,8 @@ public class TemaController {
     public ResponseEntity<TemaResponse> getInfo() {
         TemaResponse response = new TemaResponse();
         response.setTema("Ambientes de trabalho com Realidade Virtual ou Aumentada");
-        response.setMembro1("Rafael Bueno Villela - RM550275");
-        response.setMembro2("Cesar Iglesias - RM98007");
+        response.setMembro1("Rafael Bueno Villela");
+        response.setMembro2("Cesar Iglesias");
         response.setDescricao(
             "Esta API foi desenvolvida para suportar ambientes de trabalho inovadores que utilizam " +
             "tecnologias de Realidade Virtual (VR) e Realidade Aumentada (AR). O objetivo é criar " +

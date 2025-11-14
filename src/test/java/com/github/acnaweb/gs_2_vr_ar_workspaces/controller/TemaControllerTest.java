@@ -27,8 +27,8 @@ class TemaControllerTest {
                 .andExpect(jsonPath("$.membro2").exists())
                 .andExpect(jsonPath("$.descricao").exists())
                 .andExpect(jsonPath("$.tema").value("Ambientes de trabalho com Realidade Virtual ou Aumentada"))
-                .andExpect(jsonPath("$.membro1").value("Rafael Bueno Villela - RM550275"))
-                .andExpect(jsonPath("$.membro2").value("Cesar Iglesias - RM98007"));
+                .andExpect(jsonPath("$.membro1").value("Rafael Bueno Villela"))
+                .andExpect(jsonPath("$.membro2").value("Cesar Iglesias"));
     }
 }
 

@@ -89,8 +89,8 @@ Retorna informações sobre o tema do projeto, membros do grupo e descrição.
 ```json
 {
   "tema": "Ambientes de trabalho com Realidade Virtual ou Aumentada",
-  "membro1": "Rafael Bueno Villela - RM550275",
-  "membro2": "Cesar Iglesias - RM98007",
+  "membro1": "Rafael Bueno Villela",
+  "membro2": "Cesar Iglesias",
   "descricao": "Esta API foi desenvolvida para suportar ambientes de trabalho inovadores que utilizam tecnologias de Realidade Virtual (VR) e Realidade Aumentada (AR). O objetivo é criar plataformas que permitam colaboração remota imersiva, reuniões virtuais em espaços 3D, treinamentos interativos e ambientes de trabalho híbridos que combinam elementos físicos e digitais. A solução visa transformar a forma como as equipes trabalham, oferecendo experiências mais envolventes e produtivas através de tecnologias imersivas."
 }
 ```
